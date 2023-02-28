@@ -3,7 +3,7 @@ import {View,Text, SafeAreaView,Button,StyleSheet} from 'react-native';
 
 
 
-const App = () => {
+const app = () => {
 function sayHello(){
     console.log("merhaba");
 }
@@ -50,4 +50,4 @@ bottom_view_container: {
 
 )
 
-export default App;
+export default app;
