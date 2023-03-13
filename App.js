@@ -1,53 +1,33 @@
-import React from 'react';
-import {View,Text, SafeAreaView,Button,StyleSheet} from 'react-native';
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-
-const app = () => {
-function sayHello(){
-    console.log("merhaba");
-}
-return(
-  <SafeAreaView style={styles.container}>
-      <View style={styles.upper_view_container}>
-        <Text>
-            hello world
-        </Text>
-       
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
     </View>
-    <View style={styles.bottom_view_container}>
-        <Text>
-            hello world
-        </Text>
-       
-    </View>
- {/* <Button title='Hoşgeldiniz' onPress={sayHello} disabled = {false} color = "lightcoral" ></Button> */}
-
-  </SafeAreaView>
-  
-)
+  );
 }
 
-const styles = StyleSheet.create(
-   
-    { container:{
-        flex: 1,
-        flexDirection: 'row'
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
 
-    },
-    upper_view_container: {
-    backgroundColor: 'red',
-    flex: 1,
-    // margin: 10,
-    // padding: 20,
-    // borderRadius: 20,
-},
-bottom_view_container: {
-    backgroundColor: 'blue',
-    flex: 1,
+const Tab = createBottomTabNavigator();
 
-}}
-
-)
-
-export default app;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
